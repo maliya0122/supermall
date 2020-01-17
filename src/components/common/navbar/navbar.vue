@@ -45,6 +45,7 @@ export default {
     width: 60px;
   }
   .navbar .center{
+    /* display: flex; */
     flex:1;
   }
 </style>

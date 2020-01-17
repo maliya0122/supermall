@@ -1,14 +1,12 @@
 <!--  -->
 <template>
-  <div class="FeatureView">
-      <a href="">
-          <img src="~assets/img/home/recommend_bg.jpg" alt="">
-      </a>
+  <div class="BackTop">
+      <img src="~assets/img/common/top.png" alt="">
   </div>
 </template>
 <script>
 export default {
-  name: 'FeatureView',
+  name: 'BackTop',
   components: {
     
   },
@@ -29,8 +27,14 @@ export default {
 }
 </script>
 <style scoped>
-  .FeatureView img{
+  .BackTop{
       display: block;
-      width: 100%;
+      position: fixed;
+      bottom: 50px;
+      right: 10px;
+  }
+  .BackTop img{
+      width: 40px;
+      height: 40px;
   }
 </style>

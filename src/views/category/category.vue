@@ -1,7 +1,7 @@
 <!--  -->
 <template>
   <div id="category">
-
+    <h3>分类页面</h3>
   </div>
 </template>
 <script>

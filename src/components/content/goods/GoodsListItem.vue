@@ -1,7 +1,7 @@
 <!--  -->
 <template>
-  <div class="listItem">
-    <img :src="goodsitem.show.img" alt="" />
+  <div class="listItem" @click="itemClick">
+    <img :src="goodsitem.show.img" alt="" @load="imgload" />
     <div class="item-info">
       <p class="info-title">{{ goodsitem.title }}</p>
       <span class="info-price">{{ goodsitem.price }}</span>
@@ -24,7 +24,16 @@ export default {
   data() {
     return {};
   },
-  methods: {},
+  methods: {
+    imgload(){
+      //向总线发送imgload事件
+      this.$bus.$emit("imgload")
+    },
+    itemClick(){
+      //路由跳转
+      this.$router.push("/detail/" + this.goodsitem.iid);
+    }
+  },
   computed: {},
   watch: {}
 };
