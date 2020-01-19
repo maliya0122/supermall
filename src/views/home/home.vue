@@ -190,11 +190,11 @@ export default {
 .home-nav {
   background-color: var(--color-tint);
   color: #fff;
-  /* position: fixed;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 9; */
+  z-index: 9;
 }
 .content {
   position: absolute;
