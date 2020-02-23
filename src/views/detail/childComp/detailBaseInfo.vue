@@ -42,7 +42,7 @@ export default {
 </script>
 <style scoped>
 .info {
-  padding: 10px;
+  padding: 15px;
 }
 .info-title {
   font-size: 17px;
@@ -54,7 +54,7 @@ export default {
   vertical-align: middle;
 }
 .now-price {
-  font-size: 22px;
+  font-size: 18px;
   color: var(--color-high-text);
   margin-right: 5px;
 }
@@ -83,7 +83,7 @@ export default {
   justify-content: space-between; 
 }
 .info-service{
-  font-size: 15px;
+  font-size: 12px;
   color: #000;
   padding:20px 0 20px 0;
   display: flex;

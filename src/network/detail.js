@@ -9,6 +9,12 @@ export function getDetail(iid){
     })
 }
 
+export function getRecommend(){
+    return request({
+        url: '/recommend'
+    })
+}
+
 //获取商品的基础信息
 export class BaseInfo{
     constructor(itemInfo, columns, services){
@@ -40,3 +46,4 @@ export class GoodsParam{
         this.rule = itemParams.rule.tables[0];
     }
 }
+

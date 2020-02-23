@@ -53,6 +53,6 @@ export default {
 </script>
 <style scoped>
   #MainBar{
-    height: 49px;
+    width:100%;
   }
 </style>

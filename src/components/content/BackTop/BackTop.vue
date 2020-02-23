@@ -32,6 +32,7 @@ export default {
       position: fixed;
       bottom: 50px;
       right: 10px;
+      z-index: 1000;
   }
   .BackTop img{
       width: 40px;

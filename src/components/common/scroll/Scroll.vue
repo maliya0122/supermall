@@ -39,7 +39,7 @@ export default {
       click: true //scroll组件里面默认是不能点击的
     });
 
-    //2.实时监听事件，把这个position发送给父组件
+    //2.实时监听事件，把这个position发送给父组件 :probe-type="3"
     this.scroll.on("scroll",(position)=>{
       this.$emit("pscroll",position);
     });

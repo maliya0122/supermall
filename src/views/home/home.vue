@@ -2,7 +2,7 @@
 <template>
   <div id="home">
     <NavBar class="home-nav"
-      ><template v-slot:center><div>购物街</div></template>
+      ><template v-slot:center><div>蘑菇街</div></template>
     </NavBar>
     <TabControl
         class="tabcontrol"
