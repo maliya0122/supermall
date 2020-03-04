@@ -90,7 +90,6 @@ export default {
     this.getHomeGoods("pop");
     this.getHomeGoods("new");
     this.getHomeGoods("sell");
-
   },
   destroyed(){
     console.log("页面被销毁了");
@@ -99,6 +98,7 @@ export default {
     //页面回来的时候，回到这个位置，最好重新刷新一次
     this.$refs.scroll.BackTop(0,this.scrollY,0);
     this.$refs.scroll.refresh();
+    //console.log('active')
   },
   deactivated(){
     //页面离开的时候记住scrollY值
@@ -175,6 +175,7 @@ export default {
     }
   },
   computed: {
+    //传值goodslist:点击不同的item，type是不一样的
     goodslist() {
       return this.goods[this.currentType].list;
     }
