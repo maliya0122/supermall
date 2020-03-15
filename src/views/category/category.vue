@@ -4,71 +4,67 @@
     <NavBar class="category-nav"
       ><template v-slot:center><div>商品分类</div></template>
     </NavBar>
-    <Scroll class="content">
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-      <li>12</li>
-      <li>12</li>
-      <li>12</li>
-      <li>12</li>
-      <li>12</li>
-    </Scroll>
+    <div class="content">
+      <Scroll :probe-type="3" class="left">
+        <leftcate :leftdata="leftdata" @itemclick="itemclick"></leftcate>
+      </Scroll>
+      <Scroll :probe-type="3" class="right">
+        <rightcate :rightdata="rightdata"></rightcate>
+      </Scroll>
+    </div>
   </div>
 </template>
 <script>
 import NavBar from "components/common/navbar/navbar";
 import Scroll from "components/common/scroll/Scroll";
+import leftcate from "./childComp/leftcate";
+import rightcate from "./childComp/rightcate";
+import { getCategory,getSubcategory,getCategoryDetail } from "network/category"
 
 export default {
   name: "category",
   components: {
     NavBar,
-    Scroll
+    Scroll,
+    leftcate,
+    rightcate
   },
   data() {
-    return {};
+    return {
+      leftdata:[],
+      rightdata:[],
+      maitKey:null,
+      miniWallkey:null
+    };
   },
-  methods: {},
+  created(){
+    this.getCategory()
+  },
+  methods: {
+    getCategory(){
+      getCategory().then(res=>{
+        this.leftdata = res.data.data.category.list;
+        this.maitKey = res.data.data.category.list[0].maitKey;
+        this.miniWallkey = res.data.data.category.list[0].miniWallkey;
+        //console.log(this.leftdata)
+        this.getSubcategory()
+      })
+    },
+    getSubcategory(){
+      getSubcategory(this.maitKey).then(res=>{
+        this.rightdata = res.data.data.list
+        console.log(this.rightdata)
+      })
+    },
+    itemclick(data){
+      this.leftdata.forEach((item,index)=>{
+        if(data == index){
+          this.maitKey = item.maitKey;
+        }
+      })
+      this.getSubcategory()
+    }
+  },
   computed: {}
 };
 </script>
@@ -90,5 +86,15 @@ export default {
   left: 0;
   right: 0;
   overflow: hidden;
+  display: flex;
+  flex-direction: row;
+}
+.left{
+  flex:3;
+  height: 100%;
+}
+.right{
+  flex:7;
+  height: 100%;
 }
 </style>
